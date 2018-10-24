@@ -1,14 +1,6 @@
-```
-Course: CS420 - Artificial Intelligence
-Class 15CTT – Term I/201 8 - 2019
-```
+
 # Lab 01
 
-```
-Your program should be programmed in C++ or Python. Write down your report on
-a PDF File. Finally, submit your work to Moodle before
-Oct. 2 8 th, 2018 , 23:
-```
 You are given a graph and a pair of **source** _–_ **destination** nodes. Write a program to find a
 path from **source** to **destination** using the following search strategies
 a. Breath-first search (BFS)
@@ -53,32 +45,4 @@ from node i to node j with a weight of A, and [i, j] = 0 otherwise.
     **visit them following their ascending index ordering**.
 - Use relative paths for the input and output file and do not change their names. Your
     program needs these requirements to be graded automatically.
-
-An example of the input graph and its corresponding files **input.txt** and **output.txt**
-Graph input.txt output.txt Note
-5
-0 3 0
-0 2 0 0 1
-0 0 5 0 6
-0 0 0 3 0
-0 1 0 0 0
-0 0 0 1 0
-
-0 1 4 2 3
-0 4 3
-
-Another example with the same input graph yet a different pair of source – destination and
-a different search strategy.
-Graph input.txt output.txt Note
-5
-**3 0 1**
-0 2 0 0 1
-0 0 5 0 6
-0 0 0 3 0
-0 1 0 0 0
-0 0 0 1 0
-
- 3 1 2 4
-No path is found.
-
 
