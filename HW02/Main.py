@@ -1,7 +1,3 @@
-# @Author: Thành, Tô - 1551032
-# Course: CS420
-# Homework: 02
-
 import sys 
 from collections import defaultdict 
 import heapq
@@ -74,13 +70,17 @@ class Graph:
         
 
     def DFS_goInDepth(self, current, goal, visited): 
-        visited[current]= True
+        visited[current] = True
         self.DFS_expandedNodes.append(current)
         if current == goal:
             return True
         for i in self.graph[current]:
             if visited[i] == False:
                 self.DFS_parent[i] = current
+                # Interestingly enough, if we simply Return, then
+                # the algorithm would continue to expand other routes
+                # even if a path is found, could be useful in case we
+                # want to reach multiple goals
                 if self.DFS_goInDepth(i, goal, visited) == True:
                     return True
 
@@ -124,11 +124,11 @@ class Graph:
             for i in self.graph[current]:
                 new_cost = costSoFar[current] + self.cost[current, i]
                 if i not in costSoFar or new_cost < costSoFar[i]:
-                    # A star with constant costSoFar
-                    costSoFar[i] = 0
+                    costSoFar[i] = new_cost
                     priority = new_cost
                     queue.put(i, priority)
-                self.UFS_parent[i] = current
+                    print i, priority
+                    self.UFS_parent[i] = current
         
     def UFS_getExpandedNodes(self):
         return self.UFS_expandedNodes
@@ -172,8 +172,7 @@ if __name__ == '__main__':
         source = int(content[1].split(' ')[0])
         destination = int(content[1].split(' ')[1])
         strategy = int(content[1].split(' ')[2])
-        
-        numberOfNodes = len(content[2:])        
+
         # Initialize an adjacency graph from parsed information
         g = Graph(source, destination, numberOfNodes)
         i = 0
